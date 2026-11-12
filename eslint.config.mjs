@@ -5,7 +5,14 @@ export default [
   { ignores: ['dist/', 'node_modules/'] },
   {
     languageOptions: {
-      globals: { document: 'readonly', window: 'readonly', console: 'readonly', URL: 'readonly' },
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        console: 'readonly',
+        URL: 'readonly',
+        chrome: 'readonly',
+        fetch: 'readonly',
+      },
     },
   },
 ];

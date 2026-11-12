@@ -4,7 +4,7 @@
   "fetchedAt": "2026-11-12T00:00:00Z",
   "objects": {
     "Account": {
-      "fields": { "Id": "id", "Name": "string" },
+      "fields": { "Id": "id", "Name": "string", "Industry": "string", "AnnualRevenue": "currency", "OwnerId": "reference" },
       "lookups": [{ "field": "OwnerId", "target": "User", "relationship": "Owner" }],
       "children": [
         { "object": "Contact", "field": "AccountId", "relationship": "Contacts" },
@@ -13,21 +13,26 @@
       ]
     },
     "Contact": {
-      "fields": { "Id": "id", "FirstName": "string", "LastName": "string", "AccountId": "reference" },
+      "fields": { "Id": "id", "FirstName": "string", "LastName": "string", "Email": "string", "AccountId": "reference" },
       "lookups": [{ "field": "AccountId", "target": "Account", "relationship": "Account" }],
       "children": [{ "object": "Case", "field": "ContactId", "relationship": "Cases" }]
     },
     "Opportunity": {
-      "fields": { "Id": "id", "Name": "string", "Amount": "currency", "AccountId": "reference" },
+      "fields": { "Id": "id", "Name": "string", "Amount": "currency", "CloseDate": "date", "AccountId": "reference" },
       "lookups": [{ "field": "AccountId", "target": "Account", "relationship": "Account" }],
       "children": []
     },
     "Case": {
-      "fields": { "Id": "id", "Subject": "string", "AccountId": "reference", "ContactId": "reference" },
+      "fields": { "Id": "id", "Subject": "string", "Status": "string", "IsClosed": "boolean", "Priority": "string", "AccountId": "reference", "ContactId": "reference" },
       "lookups": [
         { "field": "AccountId", "target": "Account", "relationship": "Account" },
         { "field": "ContactId", "target": "Contact", "relationship": "Contact" }
       ],
+      "children": []
+    },
+    "User": {
+      "fields": { "Id": "id", "Name": "string" },
+      "lookups": [],
       "children": []
     }
   }
