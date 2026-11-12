@@ -1,0 +1,20 @@
+{
+  "name": "soql-companion",
+  "version": "0.1.0",
+  "description": "Browser extension that converts SOQL to SQL (Postgres, SQLite) and back, with org relationship checks.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "build": "node build.mjs",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@jetstreamapp/soql-parser-js": "^8.1.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.0.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "orgDomain": "demo.my.salesforce.com",
+  "fetchedAt": "2026-11-12T00:00:00Z",
+  "objects": {
+    "Account": {
+      "fields": { "Id": "id", "Name": "string" },
+      "lookups": [{ "field": "OwnerId", "target": "User", "relationship": "Owner" }],
+      "children": [
+        { "object": "Contact", "field": "AccountId", "relationship": "Contacts" },
+        { "object": "Opportunity", "field": "AccountId", "relationship": "Opportunities" },
+        { "object": "Case", "field": "AccountId", "relationship": "Cases" }
+      ]
+    },
+    "Contact": {
+      "fields": { "Id": "id", "FirstName": "string", "LastName": "string", "AccountId": "reference" },
+      "lookups": [{ "field": "AccountId", "target": "Account", "relationship": "Account" }],
+      "children": [{ "object": "Case", "field": "ContactId", "relationship": "Cases" }]
+    },
+    "Opportunity": {
+      "fields": { "Id": "id", "Name": "string", "Amount": "currency", "AccountId": "reference" },
+      "lookups": [{ "field": "AccountId", "target": "Account", "relationship": "Account" }],
+      "children": []
+    },
+    "Case": {
+      "fields": { "Id": "id", "Subject": "string", "AccountId": "reference", "ContactId": "reference" },
+      "lookups": [
+        { "field": "AccountId", "target": "Account", "relationship": "Account" },
+        { "field": "ContactId", "target": "Contact", "relationship": "Contact" }
+      ],
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "SOQL Companion",
+  "version": "0.1.0",
+  "description": "Convert SOQL to SQL and back, with org relationship checks.",
+  "action": { "default_popup": "popup.html" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "permissions": ["storage"],
+  "optional_host_permissions": [
+    "https://*.my.salesforce.com/*",
+    "https://*.salesforce.com/*"
+  ]
+}

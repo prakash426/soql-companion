@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>SOQL Companion</title>
+</head>
+<body>
+<main class="wrap">
+<h1>SOQL Companion</h1>
+<div class="row">
+<label>Direction
+<select id="direction">
+<option value="soql-sql">SOQL to SQL</option>
+<option value="sql-soql">SQL to SOQL</option>
+</select>
+</label>
+<label>Dialect
+<select id="dialect">
+<option value="postgres">Postgres</option>
+<option value="sqlite">SQLite</option>
+</select>
+</label>
+</div>
+<label class="block">Input
+<textarea id="input" rows="8" spellcheck="false" placeholder="Paste your query here"></textarea>
+</label>
+<button id="convert" type="button">Convert</button>
+<label class="block">Output
+<textarea id="output" rows="8" spellcheck="false" readonly></textarea>
+</label>
+<section id="warnings" class="warnings" aria-live="polite"></section>
+</main>
+<script type="module" src="popup.js"></script>
+</body>
+</html>
