@@ -15,10 +15,11 @@ $('convert').addEventListener('click', async () => {
   showWarnings([]);
   $('output').value = '';
   try {
-    const out = direction === 'soql-sql'
+    const res = direction === 'soql-sql'
       ? await soqlToSql(input, dialect)
       : await sqlToSoql(input, dialect, null);
-    $('output').value = out;
+    $('output').value = res.sql || '';
+    showWarnings(res.warnings || []);
   } catch (err) {
     showWarnings([String((err && err.message) || err)]);
   }
