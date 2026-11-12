@@ -19,3 +19,12 @@ dist/firefox. npm run lint checks style.
 
 Queries and tokens never leave the browser except for schema reads you
 trigger.
+
+## Branching
+
+Work flows through features-enhancements and bugs-defects. See
+docs/BRANCHING.md.
+
+## License
+
+GPL-3.0. See LICENSE.
